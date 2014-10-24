@@ -19,20 +19,28 @@
     }
 	UI.prototype.CheckConnection = function () {
 		/// <summary>Valida que la conexión de internet este activa.</summary>
-		var xhr = new XMLHttpRequest();
-		var file =  "http://" + window.location.host +"/" ;
-		var r = Math.round(Math.random() * 10000);
-		xhr.open('HEAD', file + "?CheckConnection=" + r, false);
-		try {
-			xhr.send();
-			if (xhr.status >= 200 && xhr.status < 304) {
+		if(navigator.onLine!=undefined){
+			if(navigator.onLine) {
 				return true;
 			} else {
 				return false;
 			}
-		 } catch (e) {
-			return false;
-		 }
+		} else {
+			var xhr = new XMLHttpRequest();
+			var file =  "http://" + window.location.host +"/" ;
+			var r = Math.round(Math.random() * 10000);
+			xhr.open('HEAD', file + "?CheckConnection=" + r, false);
+			try {
+				xhr.send();
+				if (xhr.status >= 200 && xhr.status < 304) {
+					return true;
+				} else {
+					return false;
+				}
+			 } catch (e) {
+				return false;
+			 }
+		}
     }
 	UI.prototype.NoRefresh = function () {
 		document.onkeydown = function (e) {
