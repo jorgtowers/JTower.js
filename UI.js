@@ -175,30 +175,6 @@
 		}
 	}
     
-    UI.prototype.Timer={
-		Intervalo:0,
-		Unidad:0,
-		Activo:false,
-		Reiniciar:false,
-		Tick:function (callback) {
-			var seft=this;
-			var time=(this.Unidad===this.eUnidad.Segundos?1000:(this.Unidad===this.eUnidad.Minutos?60000:3600000))*this.Intervalo;
-			var timer;
-			(function loop() {
-				if(seft.Reiniciar){
-						time=(seft.Unidad===seft.eUnidad.Segundos?1000:(seft.Unidad===seft.eUnidad.Minutos?60000:3600000))*seft.Intervalo;
-						seft.Reiniciar=false;
-					}
-				if(seft.Activo)
-					{
-						if(typeof callback === 'function') {
-							callback();
-						}					
-					}
-				timer = setTimeout(loop, time);
-			})();
-		}
-	}
 	
 	
     //Propiedades
@@ -219,11 +195,6 @@
 		configurable:false
 	}); 
 	
-	Object.defineProperty(UI.prototype.Timer, "eUnidad", {
-        get: function eUnidad() {
-            return {}.Enum('Segundos','Minutos','Horas');
-        }
-    });
-    
+	    
     namespace.UI = UI;
 } (window.jt=window.jt||{}));
