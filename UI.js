@@ -226,4 +226,4 @@
     });
     
     namespace.UI = UI;
-} (window));
+} (window.jt=window.jt||{}));
