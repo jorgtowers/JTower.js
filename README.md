@@ -50,41 +50,68 @@ User Interface en Javascript, funciones para facilitar la vida del desarrollador
 
     var ui = new UI();
   
-###UI.Timer
+##Timer
 
-SubClase ui.Timer que permite habilitar un timer que repita un acción y/o evento 
+Plugin que permite habilitar un timer que repita un acción y/o evento 
 
-    ui.Timer
+        <html>
+    	<head>
+    		<title></title>
+    		<script type="text/javascript" language="javascript" src="jt.UI.js"></script>
+    		<script type="text/javascript" language="javascript" src="jt.Timer.js"></script>		
+    	</head>
+    	<body>
+    		<section id="content">
+    		</section>
+    	</body>
+    	<script type="text/javascript">
+    		window.onload=function(){
+    			this.timer = new  jt.Timer();		
+    			this.timer.Intervalo=1;
+    			this.timer.Activo=true;
+    			this.timer.Unidad=this.timer.eUnidad.Segundos;
+    			this.timer.Tick(function(){
+    				var hora=document.getElementById("content");
+    				hora.innerHTML=new Date();
+    			});
+    		}
+    	</script>
+    	<html>
 
-####UI.Timer.Activo
+####Timer.Activo
 
 Propiedad tipo Booleano, que permite la activación o desactivación del timer, su valor por defecto es "false"
 
-    ui.Timer.Activo = true;
+    jt.Timer.Activo = true;
 
-####UI.Timer.Intervalo
+####Timer.Intervalo
 
 Propiedad tipo Integer, que permite la asignación de la cantidad de veces que se va a repetir el método Tick, su valor por defecto es "0"
 
-    ui.Timer.Intervalo = 1;
+    jt.Timer.Intervalo = 1;
 
-####UI.Timer.Unidad
+####Timer.Unidad
 
 Propiedad tipo Integer, que controla el tiempo de repetición, segun los valores de la enumeración de "ui.Timer.eUnidad" y las opciones del enumerativos son "Segundos, Minutos y/o Horas", su valor por defecto es "0"
 
-    ui.Timer.Unidad = ui.Timer.eUnidad.Segundos;
+    jt.Timer.Unidad = jt.Timer.eUnidad.Segundos;
 
-####UI.Timer.Reiniciar
+####Timer.Reiniciar
 
 Propiedad tipo Booleano, que permite la reiniciar el timer, su valor por defecto es "false"
 
-    ui.Timer.Reiniciar = true;
+    jt.Timer.Reiniciar = true;
 
-####UI.Timer.Tick
+####Timer.Tick
 
 Método, que recibe una function "callback", la cual será la que se ejecutará una vez que el timer complete su ciclo, su valor por defecto es "callback"
 
-    ui.Timer.Tick(
+    jt.Timer.Tick(
       //callback function
       function(){ document.getElementById("hora").innerHTML=new Date();}
     );
+
+####Dependencia jt.UI
+
+Este timer depende del jt.UI.js, porque en el se define el método para hacer enumerativos y por herencia se usa en jt.Timer.js
+    
