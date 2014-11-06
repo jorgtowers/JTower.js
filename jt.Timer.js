@@ -35,7 +35,7 @@
 		})();
     }
     
-	Object.defineProperty(Object.prototype, "eUnidad", {
+	Object.defineProperty(Timer.prototype, "eUnidad", {
         get: function eUnidad() {
             return {}.Enum('Segundos','Minutos','Horas');
         }
