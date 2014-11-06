@@ -15,6 +15,7 @@
 	
     
 	Paginador.prototype.Mostrar = function(){
+		var self = this;
 		var	nombreContenedor=this.Contenedor;
 		var	itemsPorPagina=this.ItemsPorPagina;
 		var	maximoPaginasAMostrar=this.MaximoPaginas;
@@ -66,7 +67,9 @@
 						for (c = 0; c < (paginas > maximoPaginasAMostrar ? maximoPaginasAMostrar : paginas) - 1; c++) {
 							var elemento = document.createElement("a");
 							elemento.id = "link" + c;
-							elemento.href = "javascript:jt.Paginador.Mover('link" + c + "','pagina" + c + "')";
+							elemento.onclick=function(e){
+								self.Mover(e.toElement.id,"pagina" + (parseInt(e.toElement.text)-1).toString());
+							};
 							elemento.innerHTML = c + 1;
 							if (c === 0) {
 								elemento.className = "numeroPagina activa";
@@ -114,7 +117,6 @@
 				link.className = "numeroPagina activa";
 			}
 		}
-	
 	Object.defineProperty(Paginador.prototype, "Contenedor", {
         get: function Contenedor() {
             return _Contenedor;
@@ -123,11 +125,11 @@
             _Contenedor = value;
         }
     });
-	Object.defineProperty(Paginador.prototype, "ItemPorPagina",{
-		get: function ItemPorPagina(){
+	Object.defineProperty(Paginador.prototype, "ItemsPorPagina",{
+		get: function ItemsPorPagina(){
             return _ItemsPorPagina;
         },
-        set: function ItemPorPagina(value) {
+        set: function ItemsPorPagina(value) {
             _ItemsPorPagina = value;
         }
     });
