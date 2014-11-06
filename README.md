@@ -1,3 +1,49 @@
+##Paginador
+
+Plugin que permite crear un páginador dinámico a partir de una lista.
+
+    <html>
+    	<head>
+    		<title></title>
+    	<script type="text/javascript" language="javascript" src="jt.Paginador.js"></script>	
+    	<style type="text/css">
+    		div#paginador>.numeroPagina {
+    			width: 24px;
+    			height: 24px;
+    			border: 1px solid;
+    			padding: 10px;
+    			margin: 5px;
+    			border-radius: 50%;
+    		}
+    	</style>
+    	</head>
+    	<body>
+    		
+    		<section id="content">
+    			<article>Lorem1 ipsum dolor sit amet, consectetur adipiscing elit. </article>
+    			<article>Lorem2 ipsum dolor sit amet, consectetur adipiscing elit. </article>
+    			<article>Lorem3 ipsum dolor sit amet, consectetur adipiscing elit. </article>
+    			<article>Lorem4 ipsum dolor sit amet, consectetur adipiscing elit. </article>
+    			<article>Lorem5 ipsum dolor sit amet, consectetur adipiscing elit. </article>
+    			<article>Lorem6 ipsum dolor sit amet, consectetur adipiscing elit. </article>
+    			<article>Lorem7 ipsum dolor sit amet, consectetur adipiscing elit. </article>
+    			<article>Lorem8 ipsum dolor sit amet, consectetur adipiscing elit. </article>
+    			<article>Lorem9 ipsum dolor sit amet, consectetur adipiscing elit. </article>
+    			<article>Lorem10 ipsum dolor sit amet, consectetur adipiscing elit. </article>			
+    		</section>
+    		
+    	</body>
+    	<script type="text/javascript">
+    		window.onload=function(){
+    			this.paginador = new  jt.Paginador();		
+    			this.paginador.Contenedor="content";
+    			this.paginador.ItemsPorPagina=5;
+    			this.paginador.MaximoPaginas=10;
+    			this.paginador.Mostrar();
+    		}
+    	</script>
+    </html>
+
 ##UI
 
 User Interface en Javascript, funciones para facilitar la vida del desarrollador.
