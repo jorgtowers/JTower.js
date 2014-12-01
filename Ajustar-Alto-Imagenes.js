@@ -9,7 +9,7 @@
 		img = imgs[i];
 		div=img.parentNode;
 		while(!isDiv){					
-			if(div.tagName==="DIV"){						
+			if(div.tagName === "DIV"){						
 				break;
 			} else {
 				div=div.parentNode;	
