@@ -1,6 +1,5 @@
 (function () {
-	//Fix para ajustar automaticamente el tamaño en Ancho ajustando el Alto, en el caso de las Imagenes que son Altas
-	var imgs = document.getElementsByTagName( "img");
+	var imgs = document.getElementsByTagName("img");
 	var img = null;
 	var alto = 0;
 	var isDiv=false;
