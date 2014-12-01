@@ -19,7 +19,7 @@
 			img.style.width = ((alto / img.naturalHeight) * img.naturalWidth) + "px" ;
 			img.style.height = alto + "px";
 			img.style.margin = "0 auto";
-			img.parentNode.parentNode.style.backgroundColor = "#c2c2c2";
+			div.style.backgroundColor = "#c2c2c2";
 		}
 	}
 }());
